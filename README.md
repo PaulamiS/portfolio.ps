@@ -1,6 +1,12 @@
 # My Personal Portfolio Website
 
+
+
+img=src"Screenshot 2025-04-14 235332.png"
+
 Welcome to my digital space! This is my personal portfolio built to showcase who I am, what I do, and the projects I’m proud of. It's designed with a modern, responsive layout so it looks great on any device – whether you're on a laptop, tablet, or phone.
+
+
 
 What’s Inside?
 
