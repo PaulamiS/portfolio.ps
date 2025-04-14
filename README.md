@@ -40,5 +40,4 @@ git clone https://github.com/PaulamiS/portfolio.ps.git
 cd portfolio.ps
 
 
-3. Launch the site
 
