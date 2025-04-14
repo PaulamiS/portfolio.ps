@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Skills</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Full Page Styling */
+        .skills-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            width: 100%;
+            background: linear-gradient(-45deg, #5DB9EE, #262525 70%);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .skills-content {
+            max-width: 50rem;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 3rem;
+            border-radius: 1.5rem;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+        }
+
+        .skills-content h2 {
+            font-size: 3rem;
+            color: #5DB9EE;
+            margin-bottom: 1rem;
+        }
+
+        .skills-content ol {
+            list-style: none;
+            padding: 0;
+            margin: 2rem 0;
+        }
+
+        .skills-content ol li {
+            font-size: 1.5rem;
+            background: rgba(255, 255, 255, 0.2);
+            margin: 0.7rem 0;
+            padding: 0.8rem;
+            border-radius: 5px;
+            transition: 0.3s ease-in-out;
+        }
+
+        .skills-content ol li:hover {
+            background: white;
+            color: #262525;
+        }
+
+        .back-home {
+            display: inline-block;
+            text-decoration: none;
+            background: #5DB9EE;
+            color: #262525;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: 0.3s ease-in-out;
+        }
+
+        .back-home:hover {
+            background: white;
+            color: #5DB9EE;
+        }
+        /* Responsive Styles */
+    @media (max-width: 768px) {
+      .skills-content {
+        padding: 2rem;
+      }
+
+      .skills-content h2 {
+        font-size: 2.2rem;
+      }
+
+      .skills-content ol li {
+        font-size: 1.2rem;
+        padding: 0.7rem;
+      }
+
+      .back-home {
+        font-size: 1rem;
+        padding: 0.7rem 1.2rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .skills-content h2 {
+        font-size: 1.8rem;
+      }
+
+      .skills-content ol li {
+        font-size: 1rem;
+        padding: 0.6rem;
+      }
+
+      .back-home {
+        font-size: 0.95rem;
+        padding: 0.6rem 1rem;
+      }
+    }
+  
+    </style>
+</head>
+<body>
+    <div class="portfolio-container">
+        <ul class="navlist">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Me</a></li>
+            <li><a href="education.html">Education</a></li>
+            <li><a href="skills.html" class="active">My Skills</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+
+        <div class="skills-container">
+            <div class="skills-content">
+                <h2>My Skills</h2>
+                <ol>
+                    <li>Python</li>
+                    <li>Java</li>
+                    <li>C/C++</li>
+                    <li>HTML, CSS, and JavaScript</li>
+                    <li>AI and ML Basics</li>
+                    <li>Figma</li>
+                </ol>
+                <a href="index.html" class="back-home">⬅ Back to Home</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

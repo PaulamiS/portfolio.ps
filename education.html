@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Education</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .education-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      width: 100%;
+      background: linear-gradient(-45deg, #5DB9EE, #262525 70%);
+      color: white;
+      text-align: center;
+      padding: 3rem 1rem;
+      box-sizing: border-box;
+    }
+
+    .education-content {
+      width: 100%;
+      max-width: 80rem;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 3rem;
+      border-radius: 1.5rem;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+    }
+
+    .education-content h2 {
+      font-size: 3rem;
+      color: #5DB9EE;
+      margin-bottom: 2rem;
+    }
+
+    .flowchart {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      width: 100%;
+      flex-wrap: wrap;
+    }
+
+    .box {
+      background: rgba(255, 255, 255, 0.2);
+      padding: 1.5rem 2rem;
+      border-radius: 10px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-align: center;
+      min-width: 250px;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+      position: relative;
+    }
+
+    .achievements {
+      display: none;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 1rem;
+      border-radius: 8px;
+      margin-top: 10px;
+      font-size: 1rem;
+      text-align: left;
+    }
+
+    .achievements ul {
+      padding-left: 1.2rem;
+    }
+
+    .view-achievements {
+      margin-top: 10px;
+      cursor: pointer;
+      padding: 0.5rem 1rem;
+      background: #5DB9EE;
+      color: #262525;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .view-achievements:hover {
+      background: white;
+      color: #5DB9EE;
+    }
+
+    .arrow {
+      width: 50px;
+      height: 4px;
+      background-color: white;
+      margin: auto;
+    }
+
+    .back-home {
+      display: inline-block;
+      text-decoration: none;
+      background: #5DB9EE;
+      color: #262525;
+      padding: 1rem 2rem;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: 0.3s ease-in-out;
+      margin-top: 2.5rem;
+    }
+
+    .back-home:hover {
+      background: white;
+      color: #5DB9EE;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 1024px) {
+      .education-content {
+        padding: 2rem;
+      }
+      .box {
+        font-size: 1.1rem;
+        min-width: 220px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .education-content h2 {
+        font-size: 2.2rem;
+      }
+      .flowchart {
+        flex-direction: column;
+      }
+      .arrow {
+        transform: rotate(90deg);
+        width: 4px;
+        height: 40px;
+      }
+      .box {
+        width: 90%;
+        margin: 0 auto;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .education-content h2 {
+        font-size: 1.8rem;
+      }
+      .view-achievements {
+        font-size: 0.9rem;
+        padding: 0.4rem 0.8rem;
+      }
+      .back-home {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+</head>
+<body>
+    <div class="portfolio-container">
+        <ul class="navlist">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Me</a></li>
+            <li><a href="education.html" class="active">Education</a></li>
+            <li><a href="skills.html">My Skills</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+
+        <div class="education-container">
+            <div class="education-content">
+                <h2>Education</h2>
+                <div class="flowchart">
+                    
+                    <!-- Julien Day School -->
+                    <div class="box">
+                        Julien Day School, Ganganagar <br>(2008 - 2020)
+                        <button class="view-achievements" onclick="toggleAchievements('achieve1')">View Achievements</button>
+                        <div class="achievements" id="achieve1">
+                            <ul>
+                                Top Performer in Mathematics,English & Computer Olympiad
+                                <br>
+                                Won Bronze medal in Math Olympiad at school level
+                                <br>
+                                First Position holder in a drawing competition oraganized by Birla Art Accademy
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="arrow"></div>
+
+                    <!-- Sudhir Memorial Institute -->
+                    <div class="box">
+                        Sudhir Memorial Institute <br>(2020 - 2022)
+                        <button class="view-achievements" onclick="toggleAchievements('achieve2')">View Achievements</button>
+                        <div class="achievements" id="achieve2">
+                            <ul>
+                                Made  a successfull database magement project along with team
+                                
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="arrow"></div>
+
+                    <!-- VIT Vellore -->
+                    <div class="box">
+                        B.Tech in CSE (AI & ML) <br>VIT Vellore (2022 - Present)
+                        <button class="view-achievements" onclick="toggleAchievements('achieve3')">View Achievements</button>
+                        <div class="achievements" id="achieve3">
+                            <ul>
+                                AIR 350 In VITEEE 
+                                <br>
+                                Developed AR project for Augmentrix
+                                <br>
+                                Member of Tech Club
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+                <a href="index.html" class="back-home">⬅ Back to Home</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleAchievements(id) {
+            var achievements = document.getElementById(id);
+            if (achievements.style.display === "block") {
+                achievements.style.display = "none";
+            } else {
+                achievements.style.display = "block";
+            }
+        }
+    </script>
+</body>
+</html>

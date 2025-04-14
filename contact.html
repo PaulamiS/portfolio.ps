@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .contact-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            width: 100%;
+            background: linear-gradient(-45deg, #5DB9EE, #262525 70%);
+            color: white;
+            text-align: center;
+            padding: 3rem 0;
+        }
+
+        .contact-content {
+            width: 100%;
+            max-width: 50rem;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 3rem;
+            border-radius: 1.5rem;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+        }
+
+        .contact-content h2 {
+            font-size: 3rem;
+            color: #5DB9EE;
+            margin-bottom: 2rem;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 0.8rem;
+            margin: 0.5rem 0;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .contact-form button {
+            cursor: pointer;
+            padding: 0.8rem 1.5rem;
+            background: #5DB9EE;
+            color: #262525;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .contact-form button:hover {
+            background: white;
+            color: #5DB9EE;
+        }
+
+        .contact-info {
+            margin-top: 2rem;
+            font-size: 1.2rem;
+        }
+
+        .contact-info a {
+            color: #5DB9EE;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        .back-home {
+            display: inline-block;
+            text-decoration: none;
+            background: #5DB9EE;
+            color: #262525;
+            padding: 1rem 2rem;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: 0.3s ease-in-out;
+            margin-top: 2.5rem;
+        }
+
+        .back-home:hover {
+            background: white;
+            color: #5DB9EE;
+        }
+         /* Responsive Styles */
+    @media (max-width: 768px) {
+      .contact-content h2 {
+        font-size: 2rem;
+      }
+
+      .contact-form input,
+      .contact-form textarea {
+        font-size: 0.95rem;
+        padding: 0.7rem;
+      }
+
+      .contact-info {
+        font-size: 1rem;
+      }
+
+      .back-home {
+        font-size: 0.95rem;
+        padding: 0.8rem 1.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .contact-content {
+        padding: 2rem 1.5rem;
+      }
+
+      .contact-content h2 {
+        font-size: 1.6rem;
+      }
+
+      .contact-form input,
+      .contact-form textarea {
+        font-size: 0.9rem;
+      }
+
+      .contact-info {
+        font-size: 0.95rem;
+      }
+
+      .back-home {
+        padding: 0.7rem 1.2rem;
+        font-size: 0.9rem;
+      }
+    }
+    </style>
+</head>
+<body>
+    <div class="portfolio-container">
+        <ul class="navlist">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Me</a></li>
+            <li><a href="education.html">Education</a></li>
+            <li><a href="skills.html">My Skills</a></li>
+            <li><a href="contact.html" class="active">Contact</a></li>
+        </ul>
+
+        <div class="contact-container">
+            <div class="contact-content">
+                <h2>Contact Me</h2>
+                <form class="contact-form">
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                    <textarea placeholder="Your Message" rows="5" required></textarea>
+                    <button type="submit">Send Message</button>
+                </form>
+                <br>
+
+
+                <h2> My contact info:</h2>
+                <div class="contact-info">
+                    <p>Email: sahupaulami97@gmail.com</p>
+                    <p>Phone: 9883529949</p>
+                    <p>GitHub: <a href="https://github.com/PaulamiS" target="_blank">PaulamiS</a></p>
+                    <p>LinkedIn: <a href="https://www.linkedin.com/in/paulami-sahu-6a995728a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">My linkedinId</a></p>
+                </div>
+                <a href="index.html" class="back-home">⬅ Back to Home</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

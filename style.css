@@ -1,0 +1,308 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400..800&display=swap');
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Syne", serif;
+}
+
+.portfolio-container {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;  /* Makes left and right containers sit side by side */
+   
+    
+}
+
+.navlist {
+    display: flex;
+    gap: 3.5rem;
+    height: 15vh;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    
+}
+
+.navlist li {
+    list-style: none;
+}
+
+.navlist a {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 1rem;
+    color: #fff;
+    position: relative;
+}
+
+.left-container, .right-container {
+    height: 100vh; /* Corrected */
+    display: flex;
+    align-items: center;
+}
+
+.left-container {
+    background: #262525;
+    width: 70%;
+    padding-left: 3rem;
+}
+
+.right-container {
+    background: linear-gradient(-45deg,#5DB9EE,#262525 70%);
+    width: 30%;
+    
+}
+.icons .fa-brands{
+    color:#bbb;
+    font-size: 1.7rem;
+
+}
+.icons{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    
+}
+.icons i{
+    font-size: 1.5rem;
+}
+
+.content{
+    margin-left: 4rem;
+
+}
+.content .intro{
+    font-size: 1.5rem;
+    color: #fff;
+}
+.content .intro span{
+    color: #5DB9EE;
+
+}
+
+.content h1{
+    font-size: 4rem;
+    color:#5DB9EE ;
+}
+
+.content .details{
+    font-size: 1.1rem;
+    color: #fff;
+    max-width:38rem ;
+    margin-top: 1.1rem;
+    margin-right: 0rem;
+    margin-bottom: 4rem;
+    margin-left: 0rem;
+    line-height: 1.8rem;
+}
+.button button{
+    border: .1rem solid #5DB9EE ;
+    font-size: 1.1rem;
+    padding: .8rem;
+    border-radius: .5rem;
+    cursor: pointer;
+    transition: .5s ease;
+}
+ button:nth-child(1){
+    background-color: #5DB9EE;
+    color: #262525;
+    
+ }
+ button:nth-child(2){
+    background-color: transparent;
+    color: #5DB9EE;
+    margin-left: 2rem;
+ }
+ button:nth-child(1):hover{
+    background-color: transparent;
+    color: #5DB9EE;
+ }
+button:nth-child(2):hover{
+    background-color: #5DB9EE;
+    color: transparent;
+}
+
+.design .circle{
+    aspect-ratio: 1;
+    position: absolute;
+    border-radius: 50%;
+    top:50%;
+    left: 70%;
+    transform: translate(-50%,-50%);
+}
+.circle:nth-child(1){
+    background: linear-gradient(90deg,transparent 50%,#262525);
+    width: 38rem;
+    max-width:90vw;
+}
+.circle:nth-child(2){
+    background-image: url("image/Paulami3.jpeg");
+    width: 30rem;
+    max-width: 70vw;
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    border:.1rem solid white;
+    box-shadow: 0 0 1rem #fff, inset 0 0 1rem #fff,0 0 2rem #5DB9EE, inset 0 0 2rem #5DB9EE,0 0;/* used for putting white shadow*/
+
+    
+}
+.navlist li a::after,.navlist .active::after{
+   content:"";
+   position:absolute;
+   background: white;
+   width: 100%;
+   height: .1rem; 
+   left:0;
+   bottom: -5px;
+   transform: scaleX(0);
+   transform-origin: bottom right;
+   transform: transform .5s;
+   
+}
+.navlist li a:hover::after, .navlist .active::after{
+    transform: scaleX(1);
+    text-overflow: bottom left;
+}
+
+.back-home {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: white;
+    background-color: #5DB9EE;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+.back-home:hover {
+    background-color: #4a90d9;
+}
+
+.skills{
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    background-color:#262525;
+    color: #fff;
+}
+
+/* Tablet & smaller */
+@media (max-width: 1024px) {
+    .portfolio-container {
+        flex-direction: column;
+    }
+
+    .left-container, .right-container {
+        width: 100%;
+        flex-direction: column;
+        height: auto;
+    }
+
+    .content {
+        margin: 2rem;
+        text-align: center;
+    }
+
+    .icons {
+        flex-direction: row;
+        gap: 2rem;
+        margin-top: 2rem;
+    }
+
+    .design .circle {
+        left: 50%;
+        top: auto;
+        bottom: 2rem;
+        transform: translate(-50%, 0);
+    }
+
+    .circle:nth-child(1) {
+        width: 80vw;
+    }
+
+    .circle:nth-child(2) {
+        width: 60vw;
+    }
+}
+
+@media (max-width: 1024px) {
+    .portfolio-container {
+      flex-direction: column;
+    }
+  
+    .left-container, .right-container {
+      width: 100%;
+      height: auto;
+      flex-direction: column;
+      padding: 2rem 1rem;
+    }
+  
+    .content {
+      margin: 2rem 0;
+      text-align: center;
+      margin-left: 0;
+    }
+  
+    .icons {
+      flex-direction: row;
+      gap: 2rem;
+      margin-top: 1rem;
+      justify-content: center;
+    }
+  
+    .design .circle.bg-circle {
+      width: 90vw;
+      top: 80%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  
+    .design .circle.profile-circle {
+      width: 60vw;
+      top: 80%;
+      left: 50%;
+      background-size: cover;
+      transform: translate(-50%, -50%);
+    }
+  
+    .navlist {
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      position: static;
+      height: auto;
+      padding: 1rem;
+      background: #262525;
+    }
+  
+    .content h1 {
+      font-size: 2.5rem;
+    }
+  
+    .content .details {
+      font-size: 1rem;
+      margin: 1rem auto;
+      max-width: 90%;
+    }
+  
+    .button {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+  
+    .button button {
+      margin-left: 0 !important;
+    }
+  }
+  
