@@ -3,71 +3,364 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>My Portfolio</title>
+  <title>Pau's Profile</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    /* Mobile Navigation */
+    .menu-toggle {
+      display: none;
+      font-size: 2rem;
+      cursor: pointer;
+      color: rgb(203, 156, 247);
+      background: none;
+      border: none;
+    }
+
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(6px);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: rgb(80, 12, 105);
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: rgb(203, 156, 247);
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        background-color: rgba(255, 255, 255, 0.95);
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        padding: 1rem;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+
+      .navbar {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .hero-image {
+        margin-top: 1.5rem;
+      }
+
+      .skills-list,
+      .timeline {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .contact-section > div {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      input, textarea, button {
+        width: 100% !important;
+      }
+
+      h1 {
+        font-size: 1.8rem;
+      }
+
+      .hero-text p {
+        font-size: 1rem;
+      }
+    }
+
+    /* Glow Effect for CTA Buttons */
+    .cta {
+      position: relative;
+      background-color: rgb(203, 156, 247);
+      color: white;
+      padding: 0.7rem 1.5rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.2s ease-in-out;
+      box-shadow: 0 0 8px rgba(203, 156, 247, 0.6);
+      animation: glow 2s infinite ease-in-out;
+    }
+
+    .cta:hover {
+      transform: scale(1.05);
+    }
+
+    @keyframes glow {
+      0% {
+        box-shadow: 0 0 8px rgba(203, 156, 247, 0.6);
+      }
+      50% {
+        box-shadow: 0 0 20px rgba(203, 156, 247, 0.9);
+      }
+      100% {
+        box-shadow: 0 0 8px rgba(203, 156, 247, 0.6);
+      }
+    }
+
+    /* Dark Mode Styles */
+    body.dark-mode {
+      background-color: #121212;
+      color: white;
+    }
+
+    body.dark-mode .navbar,
+    body.dark-mode .nav-links,
+    body.dark-mode .about-section,
+    body.dark-mode .education-section,
+    body.dark-mode .skills-section,
+    body.dark-mode .contact-section {
+      background-color: rgba(0, 0, 0, 0.7);
+      color: white;
+    }
+
+    body.dark-mode .nav-links a {
+      color: white;
+    }
+
+    body.dark-mode .nav-links a:hover {
+      color: rgb(203, 156, 247);
+    }
+
+    body.dark-mode input,
+    body.dark-mode textarea {
+      background-color: #222;
+      color: white;
+    }
+
+    body.dark-mode .cta {
+      background-color: rgb(203, 156, 247);
+    }
+  </style>
 </head>
+<body style="background-image: url('p.jpeg');">
 
-<body>
-  <div class="portfolio-container"> 
-    <ul class="navlist">
-      <li><a href="home" class="active">Home</a></li>
-      <li><a href="about.html">About me</a></li>
-      <li><a href="education.html">Education</a></li>
-      <li><a href="skills.html">My Skills</a></li>
-      <li><a href="contact.html">Contact</a></li>
-      <li><a href="projects.html">Projects</a></li>
-    </ul>
+  <!-- Dark Mode Toggle -->
+  <button id="toggle-theme" type="button">Toggle Dark Mode</button>
 
-    <div class="left-container">
-      <div class="icons">
-        <a href="https://www.linkedin.com/in/paulami-sahu-6a995728a" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-        <a href="https://www.instagram.com/sahupaulami97" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-        <a href="https://wa.me/9883529949" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+  <header class="navbar">
+    <div class="logo">
+      <p style="color: rgb(203, 156, 247);">Pau's</p>Profile
+    </div>
+    <button class="menu-toggle" id="mobile-menu">☰</button>
+    <nav class="nav-links" id="navLinks">
+      <a href="#">Home</a>
+      <a href="#about">About Me</a>
+      <a href="#education">Education</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact Me</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-text">
+      <b><h1>Hi, I am<br><span>Paulami Sahu <span class="highlight">Future Engineer !!</span></span></h1></b>
+      <br>
+      <p id="typed-text"></p>
+      <button class="cta" onclick="window.open('Paulamiresume.pdf', '_blank')">View Resume</button>
+      <button class="cta" onclick="document.getElementById('projects').scrollIntoView({ behavior: 'smooth' })">View Project</button>
+
+      <div class="social-icons">
+        <a href="https://wa.me/9883529949" target="_blank" title="WhatsApp">📱</a>
+        <a href="https://www.linkedin.com/in/paulami-sahu-6a995728a" target="_blank" title="LinkedIn">🔗</a>
+        <a href="https://www.instagram.com/sahupaulami97" target="_blank" title="Instagram">📷</a>
       </div>
-
-      <div class="content">
-        <p class="intro">Hi, I am <span>Paulami Sahu</span></p>
-        <h1>Engineering Student</h1>
-        <b><h3 class="details">"Coding, Creating, and Innovating for a Better Tomorrow."</h3></b>
-        <div class="button">
-          <button onclick="window.open('PAULAMI SAHU new resume (2).pdf')">View Resume</button>
-          <button onclick="window.location.href='projects.html'">View Projects</button>
-        </div>
-      </div> 
     </div>
 
-      <!-- FIX: Added dark wrapper to make image area match desktop -->
-    <!---  <div class="right-container" style="background-color: #0f0f0f; padding: 2rem 0;">
-        <div class="profile-pic-wrapper">
-          <img src="images/Paulami3.jpg" alt="Paulami Sahu" style="width: 90%; height: 90%; object-fit: cover; border-radius: 50%;" />
-
+    <div class="hero-image">
+      <div class="image-card">
+        <div class="pinned-photo">
+          <img src="Paulami.jpeg" alt="Student" />
+          <div class="pin">📍</div>
+          <div class="tape tl"></div>
+          <div class="tape br"></div>
         </div>
-      </div>-->
-
-    <div class="right-container" style="background-color: #0f0f0f; padding: 2rem 0;">
-  <div class="profile-pic-wrapper">
-    <img src="Paulami3.jpg" alt="Paulami Sahu" style="width: 90%; height: 90%; object-fit: cover; border-radius: 50%;" />
-  </div>
-</div>
-
-
-    
-
-
-    
-
-    <!--- Ensure this wrapper keeps circular and responsive behavior --
-    <div class="right-container">
-      <div class="profile-pic-wrapper">
-        <img src="Paulami3.jpg" alt="Paulami Sahu" style="width: 100%; height: 100%; object-fit: cover;" />
       </div>
-    </div>--->
-
-    <div class="design">
-      <div class="circle"></div>
-      <div class="circle"></div>
     </div>
-  </div>
+  </section>
+
+  <section class="about-section" id="about">
+    <h2>About Me</h2>
+    <p>
+      Hello! I'm <strong>Paulami Sahu</strong>, a passionate and curious engineering student who loves to solve problems through technology. I specialize in coding and enjoy exploring new areas in development — from web design to innovative applications. When I'm not building, I'm learning, sketching, or collaborating with others to bring great ideas to life.
+    </p>
+  </section>
+
+  <section class="education-section" id="education">
+    <h2>Education</h2>
+    <div class="timeline">
+      <div class="timeline-entry">
+        <h3>Bachelor of Technology - CSE(AI and ML)</h3>
+        <p>Vellore Institute of Technology-----> 2023-2027</p>
+      </div>
+      <div class="timeline-entry">
+        <h3>Higher Secondary (12th)</h3>
+        <p>Sudhir Memorial Institute-----> 2020–2022</p>
+      </div>
+      <div class="timeline-entry">
+        <h3>Secondary (10th)</h3>
+        <p>Julien Day School,Ganganagar-----> 2008–2020</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="skills-section" id="skills">
+    <h2>Skills</h2>
+    <div class="skills-list">
+      <div class="skill-item">✨ HTML5</div>
+      <div class="skill-item">🎨 CSS3</div>
+      <div class="skill-item">⚙️ JavaScript</div>
+      <div class="skill-item">🐍 Python</div>
+      <div class="skill-item">💻 C/C++</div>
+      <div class="skill-item">⚛️ React</div>
+      <div class="skill-item">🌐 Git & GitHub</div>
+      <div class="skill-item">🧠 Problem Solving</div>
+      <div class="skill-item">🎨 Figma</div>
+    </div>
+  </section>
+
+  <section class="skills-section" id="projects">
+    <h2>Projects</h2>
+    <div class="skills-list">
+      <a href="https://github.com/PaulamiS/Amazon-clone-Website.git" target="_blank" class="skill-item">🌐 Amazon clone website</a>
+      <a href="https://paulamis.github.io/P-sloginpage4/" target="_blank" class="skill-item">📝 Login Page</a>
+      <a href="https://github.com/paulami01/calculator" target="_blank" class="skill-item">🧮 Calculator</a>
+      <a href="https://github.com/paulami01/weather-app" target="_blank" class="skill-item">☀️ Weather App</a>
+    </div>
+  </section>
+
+  <section class="contact-section" id="contact" style="padding: 3rem 1rem; background: rgba(255, 255, 255, 0.05);">
+    <h2 style="text-align: center; font-size: 2rem; color: black; margin-bottom: 1rem;">Get In Touch</h2>
+    <b><p style="text-align: center; color:  rgb(203, 156, 247); max-width: 600px; margin: auto;">
+      Have a project in mind or want to collaborate? Feel free to connect!
+    </p></b>
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin-top: 2rem;">
+      <div style="flex: 1; min-width: 280px; max-width: 400px; color: black;">
+        <h3 style="color: black; margin-bottom: 1rem;">Contact Information</h3>
+        <p style="color:rgb(84, 82, 82);">Feel free to contact me directly through any of the following channels or by using the form.</p>
+        <br><p><strong>Email:</strong><br><a href="mailto:sahupaulami97@gmail.com" style="color: black;">sahupaulami97@gmail.com</a></p>
+        <br><p><strong>Phone:</strong><br><a href="tel:+919883529949" style="color: black;">+91 98835 29949</a></p>
+        <br><p><strong>Location:</strong><br>Kolkata, India</p>
+      </div>
+      <form action="https://formspree.io/f/xwkzyzja" method="POST"
+        style="flex: 1; min-width: 280px; max-width: 500px; display: flex; flex-direction: column; gap: 1rem;">
+        <h3 style="color: black;">Send a Message</h3>
+        <input type="text" name="name" placeholder="Your Name" required 
+               style="padding: 10px; border-radius: 8px; border: none;" />
+        <input type="email" name="email" placeholder="Your Email" required 
+               style="padding: 10px; border-radius: 8px; border: none;" />
+        <input type="text" name="subject" placeholder="Subject" 
+               style="padding: 10px; border-radius: 8px; border: none;" />
+        <textarea name="message" rows="5" placeholder="Your Message" required 
+                  style="padding: 10px; border-radius: 8px; border: none;"></textarea>
+        <button type="submit" class="cta">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <footer style="background-color: rgba(52, 5, 66, 0.9); color: white; padding: 2rem 1rem; text-align: center;">
+    <div style="max-width: 1000px; margin: auto;">
+      <h2 style="font-size: 1.8rem; font-weight: bold; margin-bottom: 0.5rem;">
+        <span style="color: rgb(203, 156, 247);">Pau's</span> Profile
+      </h2>
+      <p style="font-size: 1rem; margin-bottom: 1.5rem;">
+        Made with <span style="color: red;">❤️</span> by Paulami Sahu
+      </p>
+      <p style="font-size: 0.9rem;">© 2025 Paulami Sahu. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Dark Mode Toggle
+    const toggleBtn = document.getElementById('toggle-theme');
+    toggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+    });
+
+    // Typed Text
+    const text = `"Coding, Creating, and Innovating for a Better Tomorrow."`;
+    const typedText = document.getElementById('typed-text');
+    let idx = 0;
+    function type() {
+      if (idx < text.length) {
+        typedText.innerHTML += text.charAt(idx);
+        idx++;
+        setTimeout(type, 50);
+      }
+    }
+    window.onload = type;
+
+    // Form Validation
+    const form = document.querySelector('form');
+    form.addEventListener('submit', function (e) {
+      const name = form.elements['name'].value.trim();
+      const email = form.elements['email'].value.trim();
+      const subject = form.elements['subject'].value.trim();
+      const message = form.elements['message'].value.trim();
+      let errors = [];
+
+      if (!name) errors.push("Name is required.");
+      if (!email || !/^\S+@\S+\.\S+$/.test(email)) errors.push("Valid email is required.");
+      if (subject.length > 100) errors.push("Subject can't exceed 100 characters.");
+      if (message.length < 10) errors.push("Message must be at least 10 characters.");
+
+      if (errors.length > 0) {
+        e.preventDefault();
+        alert(errors.join('\n'));
+      }
+    });
+
+    // Mobile Nav Toggle
+    const mobileMenu = document.getElementById('mobile-menu');
+    const navLinks = document.getElementById('navLinks');
+    mobileMenu.addEventListener('click', () => {
+      navLinks.classList.toggle('show');
+    });
+  </script>
+
 </body>
 </html>
